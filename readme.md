@@ -77,7 +77,7 @@ GET `/video/detail`
 Param: `videoid`
 Return:
 
-```json
+```js
 [
     {
         "quality": "自動", // auto
