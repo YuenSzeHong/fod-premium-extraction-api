@@ -2,6 +2,14 @@
 
 ## Set up
 
+### npm
+
+`npm install yarn`
+
+### yarn
+
+`yarn`
+
 ### .env file
 
 ```env
