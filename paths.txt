@@ -1,0 +1,2 @@
+https://i.fod.fujitv.co.jp/apps/api/lineup/detail/?lu_id=5d40&is_premium=false&dv_type=web
+https://i.fod.fujitv.co.jp/apps/api/lineup/detail/?lu_id=5d40&is_premium=false&dv_type=web
