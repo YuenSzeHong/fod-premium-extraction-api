@@ -13,7 +13,7 @@ const parseCookie = (cookie: string[]): { [key: string]: string } => {
 }
 
 export const getTokenHeader = async () => {
-    const token = parseCookie(await (await axios.head(BASE_URL)).headers['set-cookie']).CT
+    const token = parseCookie((await axios.head(BASE_URL)).headers['set-cookie']).CT
     return {
         headers: {
             'x-authorization': 'Bearer ' + token
