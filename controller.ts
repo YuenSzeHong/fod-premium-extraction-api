@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as moment from 'moment-timezone';
-import { parseCookie, getTokenHeader, BASE_URL, API_URL } from './utils';
+import { getTokenHeader, BASE_URL, API_URL } from './utils';
 
 export const getSeriesDetails = async (req, res) => {
     const seriesid = req.query.seriesid;
@@ -61,14 +61,7 @@ export const getVideo = async (req, res) => {
 
 export const getVideoDetails = async (req, res) => {
     const videoid = req.query.videoid;
-    const cookie =
-        parseCookie(await (await axios.head(BASE_URL)).headers['set-cookie']);
-    const token = cookie.CT
-    const tokenHeader = {
-        headers: {
-            'x-authorization': 'Bearer ' + token,
-        }
-    }
+    const tokenHeader = await getTokenHeader()
     const videoDetails = await axios.
         get(`${API_URL}apps/api/episode/detail/?ep_id=${videoid}&is_premium=false`, tokenHeader)
     const details = {
