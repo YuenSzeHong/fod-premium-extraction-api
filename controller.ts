@@ -62,6 +62,7 @@ export const getVideo = async (req, res) => {
 export const getVideoDetails = async (req, res) => {
     const videoid = req.query.videoid;
     const tokenHeader = await getTokenHeader()
+    try {
     const videoDetails = await axios.
         get(`${API_URL}apps/api/episode/detail/?ep_id=${videoid}&is_premium=false`, tokenHeader)
     const details = {
@@ -73,6 +74,10 @@ export const getVideoDetails = async (req, res) => {
         thumbnail: `${API_URL}img/program/${videoid.slice(0, 4)}/episode/${videoid}_a.jpg`
     }
     res.json(details);
+    } catch(e) {
+        res.status(500).json({ message: 'video not found' });
+    }
+
 }
 
 
