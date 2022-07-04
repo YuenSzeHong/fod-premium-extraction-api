@@ -15,6 +15,7 @@ export const getSeriesDetails = async (req, res) => {
         description: details['description'],
         cast: details['cast_name'],
         noOfEps: seriesDetails.data['episodes'].length,
+        poster: `${API_URL}img/program/${seriesid}/${seriesid}_a.jpg`
     }
     res.json(detail);
 }
